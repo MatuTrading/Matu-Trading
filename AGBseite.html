@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matu Trading - AGB</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Times New Roman, sans-serif;
+      background: #000;
+      color: silver;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    header {
+      background-color: #111;
+      color: silver;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 3;
+      width: 100%;
+    }
+
+    header img { height: 80px; }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header h1 span.slogan {
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: #bbb;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    nav {
+      background-color: #222;
+      padding: 10px 20px;
+      z-index: 4;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .nav-list a {
+      color: silver;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus {
+      background-color: #4caf50;
+      color: white;
+      outline: none;
+    }
+
+    .nav-list a.active {
+      background-color: #45a049;
+      color: white;
+    }
+
+    main {
+      padding: 20px;
+      z-index: 2;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main h2 {
+      text-align: center;
+      color: silver;
+      margin-bottom: 30px;
+    }
+
+    .intro {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+      margin-bottom: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: silver;
+    }
+
+    .disclaimer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #999;
+      font-style: italic;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    .background-logo {
+      position: fixed;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.15;
+      z-index: 1;
+      width: 90%;
+      max-width: 1200px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; }
+      header h1 { font-size: 1.5rem; }
+      header h1 span.slogan { font-size: 1rem; margin-top: 3px; }
+      header img { height: 60px; align-self: flex-end; }
+      nav { padding: 10px; }
+      .nav-list { flex-direction: column; gap: 15px; align-items: center; }
+      main { padding: 15px 10px; max-width: 100%; margin: 0; }
+      .intro { max-width: 100%; font-size: 1rem; padding: 15px; }
+      .disclaimer { max-width: 100%; padding: 0 10px; font-size: 0.85rem; }
+      .background-logo { top: 100px; width: 100%; max-width: none; }
+    }
+    footer {
+  background-color: #111;
+  color: silver;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer .footer-links a {
+  color: silver;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+footer .footer-links a:hover {
+  color: #4CAF50;
+}
+
+footer .footer-copy {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+a[href^="mailto"],
+a[href^="mailto"]:visited {
+  color: #4caf50;       /* fest grün */
+  text-decoration: underline; /* optional, für Erkennbarkeit */
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      Matu Trading
+      <span class="slogan">Märkte im Blick</span>
+    </h1>
+    <img src="Logo Neu Ohne Text und Hintergrund.png" alt="Matu Trading Logo" />
+  </header>
+
+  <nav>
+  <ul class="nav-list">
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="Krypto.html">Kryptostrategien</a></li>
+    <li><a href="Indices.html">Indices Strategien</a></li>
+    <li><a href="Aboseite.html">Abonnements</a></li>
+    <li><a href="Kontakt.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="intro">
+    <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+
+    <p><strong>Stand:</strong> September 2025</p>
+
+    <p><strong>1. Geltung, Anbieter, Begriffe</strong><br>
+    (1) Diese AGB gelten für Verträge zwischen Matu Trading und Verbrauchern.<br>
+    (2) Anbieter: <br>
+    Paul Matuszewski<br>
+    Matu Trading<br>
+    c/o IP-Management #7125<br>
+    Ludwig-Erhard-Straße 18<br>
+    20459 Hamburg <br>
+    Deutschland<br>
+    E-Mail: <a href="mailto:kontakt.silverarrow@gmail.com">kontakt.silverarrow@gmail.com</a><br>
+    (3) Verbraucher: § 13 BGB. Unternehmer: § 14 BGB.<br>
+    (4) Abweichende Bedingungen des Kunden gelten nicht.</p>
+
+    <p><strong>2. Leistungsbeschreibung (Handelssignale)</strong><br>
+    (1) Matu Trading stellt entgeltliche digitale Informationen („Signale“) zu Indizes und Kryptowährungen bereit. Kein Anspruch auf bestimmte Anzahl/Erfolg/Performance; die Signale sind keine Zusage von Gewinnen.<br>
+    (2) Zustellung über den vom Kunden gewählten Kanal (WhatsApp/Telegram/Instagram/E-Mail). Drittplattformen sind fremde Dienste; deren Verfügbarkeit liegt außerhalb unseres Einflusses.<br>
+    (3) Bei Index-Abos kann – je nach Bestellzeitpunkt – das erste Signal im Folgemonat erfolgen.</p>
+
+    <p><strong>3. Regulatorischer Hinweis (keine Individualberatung)</strong><br>
+    (1) Die bereitgestellten Handelssignale sind allgemeine Marktinformationen. Sie stellen ausdrücklich <u>keine individuelle Anlageberatung</u> oder Anlageempfehlung dar.<br>
+    (2) Matu Trading besitzt keine Erlaubnis nach dem Wertpapierinstitutsgesetz (WpIG) und erbringt keine erlaubnispflichtigen Finanzdienstleistungen. Die Nutzung der Signale erfolgt auf eigenes Risiko des Kunden.<br>
+      </p>
+
+
+    <p><strong>4. Vertragsschluss (Online-Bestellung)</strong><br>
+    (1) Die Präsentation der Abonnements auf den Seiten des Anbieters unter https://silverarrow1999.github.io/Silver-Arrow/ (insbesondere Aboseite, Krypto- und Indices-Seite) ist unverbindlich.<br>
+    (2) Die wesentlichen Merkmale der Abonnements sind auf den jeweiligen Angebotsseiten dargestellt und werden im Stripe-Checkout nochmals angezeigt, zusammen mit dem Gesamtpreis (inklusive aller anfallenden Kosten) sowie den wiederkehrenden Zahlungen. Es fällt keine Umsatzsteuer an, da der Anbieter die Kleinunternehmerregelung nach §19 UStG in Anspruch nimmt.<br>
+    (3) Vor Abgabe der Bestellung muss der Kunde durch Setzen eines Häkchens bestätigen, dass er die AGB und die Datenschutzerklärung gelesen und akzeptiert hat. Mit Klick auf „Weiter zur Kasse“ wird der Kunde auf die sichere Stripe-Checkout-Seite weitergeleitet.<br>
+    (4) Der Bestellbutton im Stripe-Checkout lautet „Zahlungspflichtig abonnieren“. Mit Klick hierauf gibt der Kunde ein verbindliches Angebot ab.<br>
+    (5) Die Annahme des Angebots erfolgt durch Übermittlung einer Bestätigungs-E-Mail oder durch unmittelbare Bereitstellung der Leistung.<br>
+    (6) Vertragspartner ist der in 1. dieser AGB genannte Anbieter.<br>
+    (7) Der Vertragstext einschließlich der AGB wird dem Kunden per E-Mail übermittelt und ist jederzeit abrufbar unter https://silverarrow1999.github.io/Silver-Arrow/AGBseite.html</p>
+
+    <p><strong>5. Laufzeit, Verlängerung, Kündigung</strong><br>
+    (1) Abos haben keine Mindestlaufzeit.<br>
+    (2) Das Abo ist jederzeit mit Monatsfrist kündbar.<br>
+    (3) Kündigungsbutton gem. § 312k BGB: Online-Kündigungen sind jederzeit über den auf jeder Unterseite verlinkten „Verträge hier kündigen“-Button möglich (mit nachfolgender „jetzt kündigen“-Bestätigung). Alternativ ist die Kündigung per E-Mail/Textform möglich. Kündigungen werden unverzüglich elektronisch bestätigt.<br>
+    (4) Außerordentliche Kündigung aus wichtigem Grund bleibt unberührt.</p>
+
+    <p><strong>6. Preise, Zahlung</strong><br>
+    (1) Alle Preise in EUR. Es fällt keine Umsatzsteuer an, da der Anbieter die Kleinunternehmerregelung nach §19 UStG in Anspruch nimmt.<br>
+    (2) Die wiederkehrenden Zahlungen erfolgen monatlich via Stripe (Kreditkarte), ggf. Klarna/Amazon Pay/Link by Stripe (sofern aktiviert). Zahlungsabwicklung erfolgt ggf. über den jeweiligen Zahlungsdienstleister.<br>
+    (3) Die Vergütung ist sofort fällig. Ratenzahlung wird nicht angeboten.</p>
+
+    <p><strong>7. Bereitstellung, Verfügbarkeit, Updates</strong><br>
+    (1) Bereitstellung beginnt unverzüglich nach Vertragsschluss/Zahlung, soweit nicht anders vereinbart.<br>
+    (2) Matu Trading erbringt angemessene Updates/Anpassungen, die für die Vertragsmäßigkeit und Sicherheit der digitalen Leistung erforderlich sind (§§ 327e ff. BGB). Der Kunde wird über erforderliche Maßnahmen informiert.<br>
+    (3) Wartungsfenster und Störungen werden – soweit möglich – vorab angekündigt. Zustellrisiken bei Dritt-Messenger-Diensten begründen keinen Minderungsanspruch; E-Mail-Zustellung steht alternativ bereit.</p>
+
+    <p><strong>8. Nutzungsrechte, Missbrauch</strong><br>
+    (1) Die Signale sind nur zur persönlichen Nutzung durch den Kunden bestimmt.<br>
+    (2) Weitergabe, öffentliche Veröffentlichung, gewerbliche Nutzung (Weiterverkauf, Signal-Mirroring) sind untersagt.<br>
+    (3) Bei schwerwiegenden Verstößen ist Matu Trading nach Abmahnung zur Sperre des Zugangs und außerordentlichen Kündigung berechtigt; bereits gezahlte Entgelte werden aliquot erstattet, soweit gesetzlich geboten.</p>
+
+    <p><strong>9. Widerrufsrecht für Verbraucher</strong><br>
+    (1) Verbraucher haben 14 Tage Widerrufsrecht ab Vertragsschluss (digitale Dienste) bzw. ab Bereitstellung digitaler Inhalte.<br>
+    (2) Widerruf an: <a href="mailto:wiederruf.silverarrow@gmail.com">wiederruf.silverarrow@gmail.com</a>. Erstattung binnen 14 Tagen.</p>
+
+    <p><strong>10. Muster-Widerrufsformular</strong><br>
+    An: Matu Trading, Paul Matuszewski, c/o IP-Management #7125, Ludwig-Erhard-Straße 18, 20459 Hamburg, Deutschland<br>
+    E-Mail: wiederruf.silverarrow@gmail.com<br><br>
+
+    Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über das Abonnement der folgenden digitalen Dienstleistung (*)<br><br>
+
+    Bestellt am (*)<br>
+    Name des/der Verbraucher(s)<br>
+    Anschrift des/der Verbraucher(s)<br>
+    Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)<br>
+    Datum<br><br>
+
+    (*) Unzutreffendes streichen
+    </p>
+        
+    <p><strong>11. Gewährleistung/Verbraucherrechte bei digitalen Produkten</strong><br>
+    (1) Es gelten die gesetzlichen Rechte bei Mängeln digitaler Produkte/Dienste (§§ 327 ff. BGB): Nacherfüllung, Minderung, Rücktritt, ggf. Schadensersatz.<br>
+    (2) Kein Erfolgsversprechen: Die Signale begründen keinen Anspruch auf Performance/Profit; sie sind keine Garantie für Handelsentscheidungen.</p>
+
+    <p><strong>12. Haftung</strong><br>
+    (1) Für Vorsatz und grobe Fahrlässigkeit haftet Matu Trading unbeschränkt.<br>
+    (2) Für einfache Fahrlässigkeit haftet Matu Trading nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten); in diesem Fall ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt.<br>
+    (3) Unberührt bleiben Ansprüche wegen Verletzung von Leben, Körper, Gesundheit, nach ProdHaftG sowie bei Übernahme einer Garantie.<br>
+    (4) Matu Trading übernimmt keine Haftung für finanzielle Verluste oder Schäden, die direkt oder indirekt aus der Nutzung der auf der Webseite bereitgestellten Informationen, Analysen oder Handelssignale entstehen, soweit gesetzlich zulässig. Nutzer treffen alle Anlageentscheidungen ausschließlich auf eigene Verantwortung.<br>
+    (5) Matu Trading haftet nicht für Leistungen oder Funktionsstörungen von Drittanbietern, insbesondere Messenger-Plattformen oder externe Zahlungsanbieter. Pflichten nach § 7 TMG bleiben unberührt.</p>
+
+    <p><strong>13. Änderungen der Leistungen/AGB</strong><br>
+    (1) Leistungsänderungen, die den Vertragszweck nicht wesentlich beeinträchtigen, sind zulässig, wenn sachliche Gründe (z. B. rechtliche Vorgaben, Sicherheit, Plattformwechsel) dies erfordern und die Interessen des Kunden angemessen berücksichtigt werden.<br>
+    (2) Änderungen der AGB werden mindestens 6 Wochen vor Inkrafttreten per E-Mail angekündigt. Der Kunde muss aktiv zustimmen, z. B. durch Klick auf einen Bestätigungslink oder Setzen eines Häkchens.<br>
+    (3) Lehnt der Kunde die Änderungen ab oder erteilt keine Zustimmung, besteht ein Sonderkündigungsrecht, das es dem Kunden erlaubt, den Vertrag bis zum Inkrafttreten der Änderungen zu kündigen.</p>
+
+    <p><strong>14. Datenschutz</strong><br>
+    Es gilt die Datenschutzerklärung unter https://silverarrow1999.github.io/Silver-Arrow/Datenschutz.html (insb. Verarbeitung von Kontaktdaten, Zahlungsdaten, Messenger-IDs).</p>
+
+    <p><strong>15. Verbraucherstreitbeilegung</strong><br>
+    Matu Trading nimmt nicht an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teil; gesetzliche Informationspflicht erfüllt (§ 36 VSBG).</p>
+
+    <p><strong>16. Schlussbestimmungen</strong><br>
+    (1) Es gilt deutsches Recht; zwingende Verbraucherschutzvorschriften des Wohnsitzstaats bleiben unberührt.<br>
+    (2) Vertragssprache ist Deutsch.<br>
+    (3) Salvatorische Klausel: Die Unwirksamkeit einzelner Bestimmungen lässt die Wirksamkeit des Vertrags im Übrigen unberührt.<br>
+    (4) Stand: September 2025.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="Impressum.html">Impressum</a> |
+    <a href="Datenschutz.html">Datenschutz</a> |
+    <a href="AGBseite.html">AGB</a> |
+    <a href="Kontakt.html">Kontakt</a> |
+    <a href="Kuendigung.html">Verträge hier kündigen</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 Matu Trading – Alle Rechte vorbehalten.</p>
+</footer>
+    
