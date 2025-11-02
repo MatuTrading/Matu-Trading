@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Silver Arrow - Indices Strategien </title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #000;
+color: silver;
+margin: 0;
+padding: 0;
+position: relative;
+}
+header {
+background-color: #111;
+color: silver;
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+z-index: 3;
+width: 100vw;
+box-sizing: border-box;
+}
+header img {
+height: 80px;
+}
+header h1 {
+margin: 0;
+font-size: 2rem;
+display: flex;
+flex-direction: column;
+}
+header h1 span.slogan {
+font-weight: normal;
+font-size: 1.2rem;
+color: #bbb;
+margin-top: 5px;
+font-style: italic;
+}
+nav {
+background-color: #222;
+padding: 10px 20px;
+z-index: 4;
+}
+.nav-list {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+gap: 30px;
+}
+.nav-list a {
+color: silver;
+text-decoration: none;
+font-weight: 600;
+font-size: 1rem;
+padding: 6px 12px;
+border-radius: 6px;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-list a:hover,
+.nav-list a:focus {
+background-color: #4caf50;
+color: white;
+outline: none;
+}
+.nav-list a.active {
+background-color: #45a049;
+color: white;
+}
+main {
+padding: 20px;
+z-index: 2;
+max-width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+main h2 {
+text-align: center;
+color: silver;
+margin-bottom: 30px;
+}
+.strategy-overview {
+background: #111;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+margin-bottom: 40px;
+max-width: 900px;
+margin-left: auto;
+margin-right: auto;
+}
+.strategy-overview p {
+font-size: 1.1rem;
+line-height: 1.6;
+color: silver;
+margin: 0;
+}
+table.performance-table {
+width: 100%;
+max-width: 900px;
+margin: 20px auto 40px auto;
+border-collapse: collapse;
+color: silver;
+font-size: 0.9rem;
+}
+table.performance-table th,
+table.performance-table td {
+border: 1px solid #444;
+padding: 8px 12px;
+text-align: center;
+white-space: nowrap;
+}
+table.performance-table th {
+background-color: #222;
+}
+.positive {
+color: #4CAF50; /* Grün */
+font-weight: 600;
+}
+
+.negative {
+color: #FFC107; /* Gelb */
+font-weight: 600;
+}
+.signal-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* sorgt für gleiche Höhe */
+}
+.signal-card {
+  background: #111;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  width: 300px;
+  text-align: center;
+  color: silver;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.signal-card h3 {
+margin-top: 0;
+margin-bottom: 15px;
+font-size: 1.6rem;
+}
+.signal-card p {
+flex-grow: 1;
+font-size: 1rem;
+margin-bottom: 20px;
+line-height: 1.4;
+}
+.subscribe-container {
+  text-align: left; /* linksbündig */
+}
+
+.subscribe-container label {
+  display: block;   /* jede Checkbox + Text in eigener Zeile */
+  margin-bottom: 5px; /* kleiner Abstand zwischen den Checkboxen */
+}
+.subscribe-container .subscribe-btn {
+  display: block;       /* macht den Button zu einem Blockelement */
+  margin: 10px auto 0;  /* oben 10px Abstand, automatisch zentriert horizontal, unten 0 */
+}
+
+.abo-details {
+  text-align: left;   /* Links ausrichten */
+  line-height: 1.2;   /* Zeilenabstand enger */
+  margin: 0;          /* keinen Extra-Abstand nach oben/unten */
+  font-size: 0.95rem; /* etwas kleiner, optional */
+}
+
+  
+.subscribe-btn {
+background-color: #4CAF50;
+color: white;
+border: none;
+padding: 12px 20px;
+font-size: 1rem;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none;
+display: inline-block;
+}
+.subscribe-btn:hover {
+background-color: #45a049;
+}
+.fußnote {
+margin-top: 40px;
+font-size: 0.9rem;
+color: #999;
+font-style: italic;
+text-align: center;
+max-width: 900px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.4;
+}
+.disclaimer {
+margin-top: 40px;
+font-size: 0.9rem;
+color: #999;
+font-style: italic;
+text-align: center;
+max-width: 900px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.4;
+}
+.background-logo {
+position: fixed;
+top: 150px;
+left: 50%;
+transform: translateX(-50%);
+opacity: 0.15;
+z-index: 1;
+width: 90%;
+max-width: 1200px;
+pointer-events: none;
+user-select: none;
+}
+  @media (max-width: 600px) {
+  header {
+    padding: 15px 20px; /* weniger Padding */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%; /* statt 100vw */
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  header h1 span.slogan {
+    font-size: 1rem;
+    margin-top: 3px;
+  }
+  header img {
+    height: 60px;
+    align-self: flex-end;
+  }
+
+  nav {
+    padding: 10px;
+  }
+  nav .nav-list {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  main {
+    padding: 15px 10px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Für Startseite */
+  .intro {
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  .feature-section {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+  }
+  .feature-card {
+    width: 100%;
+    padding: 20px;
+  }
+  .fußnote {
+    max-width: 100%;
+    padding: 0 10px;
+    font-size: 0.85rem;
+  }
+  .disclaimer {
+    max-width: 100%;
+    padding: 0 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Für Strategie-Seite */
+  .strategy-overview {
+    padding: 15px;
+    margin: 10px;
+  }
+  table.performance-table {
+    font-size: 0.8rem;
+  }
+  table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+ @media (max-width: 600px) {
+  ...
+  .signal-section {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;            /* Container nimmt volle Breite */
+    box-sizing: border-box; /* Padding/Borders werden mitgerechnet */
+    padding: 0 10px;        /* Innenabstand links/rechts */
+  }
+  .signal-card {
+    width: 100%;            /* Volle Breite des Containers */
+    max-width: 400px;       /* max. Breite, damit es nicht zu breit wird */
+    box-sizing: border-box;
+    margin: 0 auto;         /* zentriert die Karte horizontal */
+    padding: 20px;          /* Innenabstand in der Karte */
+  }
+  ...
+}
+
+.chart-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+canvas {
+  width: 600px !important;  /* Fixe Breite für Scrollen */
+  height: 300px !important; /* Höhe wie vorher, damit die Balken gut sichtbar sind */
+}
+
+
+
+  .background-logo {
+    top: 100px;
+    width: 100%;
+    max-width: none;
+  }
+}
+  @media (max-width: 768px) {
+  .chart-container {
+    overflow-x: auto;       /* horizontales Scrollen erlauben */
+    -webkit-overflow-scrolling: touch; /* für flüssiges Scrollen auf iOS */
+    width: 100%;            /* volle Breite des Containers */
+  }
+  .chart-container canvas {
+    min-width: 900px;       /* mindestens so breit wie dein Chart */
+  }
+}
+footer {
+  background-color: #111;
+  color: silver;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer .footer-links a {
+  color: silver;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+footer .footer-links a:hover {
+  color: #4CAF50;
+}
+
+footer .footer-copy {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #999;
+}
+.subscribe-container a,
+.subscribe-container a:visited {
+  color: #4caf50;  /* immer grün */
+  text-decoration: underline; /* optional */
+}
+
+  
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+<h1>
+Silver Arrow
+<span class="slogan">Märkte im Blick</span>
+</h1>
+<img src="Logo Silver Arrow.png" alt="Silver Arrow Logo" />
+</header>
+
+<nav>
+  <ul class="nav-list">
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="Krypto.html">Kryptostrategien</a></li>
+    <li><a href="Indices.html" class="active">Indices Strategien</a></li>
+    <li><a href="Aboseite.html">Abonnements</a></li>
+    <li><a href="Kontakt.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+
+<main>
+<h2>Indices Strategien Überblick</h2>
+
+
+
+<section class="strategy-overview">
+<p>
+       Unsere Mitteilungen zu Indizes konzentrieren sich aktuell auf den S&P 500 und den NASDAQ 100. Sie zeigen, wie Silver Arrow eigene Handelsaktivitäten umsetzt, und bieten spannende Einblicke für Interessierte.</p><br>
+
+<p>Die Grundidee: Ein Anleger investiert regelmäßig einen fixen Betrag – z. B. monatlich – in ein Derivate-Sparmodell. Unsere Informationen zeigen, wann Silver Arrow auf Basis eigener Analyse Handelsentscheidungen trifft, sodass Abonnenten diese als Orientierung für eigene Recherchen nutzen können.
+    </p><br>
+
+    <p>
+        Die Mitteilungen beschränken sich auf kurze Informationen, beispielsweise:
+„Heute hat Silver Arrow über Broker XY Knock-out-Zertifikat XY auf den S&P 500 gekauft.“
+
+Wie diese Informationen genutzt werden, liegt vollständig im Ermessen des Abonnenten.
+    </p><br>
+  
+
+
+<p>Wichtiger Hinweis: Diese Inhalte stellen keine Anlageberatung oder Empfehlung dar. Sie dienen ausschließlich der allgemeinen Information über die Handelsaktivitäten von Silver Arrow. Investitionen in Derivate und Hebelprodukte sind mit hohen Risiken verbunden, einschließlich des vollständigen Verlusts des eingesetzten Kapitals. Silver Arrow übernimmt keinerlei Haftung für finanzielle Verluste oder Schäden, die direkt oder indirekt aus der Nutzung dieser Informationen entstehen.</p><br>
+
+</section>
+<div class="chart-container">
+  <canvas id="performanceChart" width="900" height="450" style="display: block; margin: 0 auto 40px auto;"></canvas>
+</div>
+
+<h2>S&P 500 Strategie vs. Sparplan*</h2>
+<table class="performance-table" aria-label="Jahresrenditen S&P 500 Strategien*">
+<thead>
+<tr>
+<th>Index</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S&P500 (Sparplan)</td>
+<td>19,70%</td>
+<td>14,20%</td>
+<td>-6,95%</td>
+<td>12,56%</td>
+<td>10,00%</td>
+</tr>
+<tr>
+<td>S&P500 (Strategie)</td>
+<td>50,78%</td>
+<td>30,09%</td>
+<td>-12,95%</td>
+<td>25,66%</td>
+<td>30,63%</td>
+</tr>
+<tr>
+<td>Delta</td>
+<td class="positive">31,07%</td>
+<td class="positive">15,89%</td>
+<td class="negative">-6,00%</td>
+<td class="positive">13,09%</td>
+<td class="positive">20,63%</td>
+</tr>
+</tbody>
+</table>
+
+  <div class="fußnote">
+<p><em>* Alle dargestellten Renditen sind vor Kosten berechnet. Berechnungsgrundlage sind die Kurse und relevanten Knock-Out-Schwellen der für die jeweilige Strategie herangezogenen Indizes, jeweils über TradingView: NASDAQ 100 über FXCM CFD-Kurse, S&P 500 über BlackBull Markets CFD-Kurse. Bei den Strategien wird jeweils angenommen, dass die Positionen ab Beginn des jeweiligen Jahres eröffnet und innerhalb des Jahres je nach Signalen Long-Positionen über Knock-Out-Zertifikate eröffnet und wieder geschlossen werden; jedes Jahr wird neu gestartet. Alle Berechnungen erfolgen ohne Handelsegebühren, Spreads, Finanzierungskosten, Slippage und Steuern. Die Strategiebasis (Signal-Logik) ist proprietär und wird aus Gründen des Schutzes vor Nachahmung nicht offengelegt. Knock-Out-Produkte wurden auf Basis historischer Kursverläufe zurückgerechnet; historische Produkte, die zwischenzeitlich ausliefen, wurden nicht berücksichtigt (Survivorship Bias möglich). Historische Renditen sind kein verlässlicher Indikator für zukünftige Entwicklungen.</em></p>
+</div>
+  <div class="signal-section">
+
+    <div class="signal-card">
+      <h3>S&amp;P 500 Informationen</h3>
+<p class="abo-details">
+Preis: 19,99 € je Monat<br>
+Hinweis: Gemäß §19 UStG wird keine Umsatzsteuer berechnet.<br>
+Zahlungsintervall: monatlich im Voraus<br>
+Mindestlaufzeit: 1 Monat<br>
+Verlängerung: automatische Verlängerung um jeweils 1 Monat<br>
+Kündigungsfrist: jederzeit mit einer Frist von 1 Monat zum Ende des Abrechnungszeitraums<br>
+Leistungsmerkmale: Information über Handelsaktivitäten von Silver Arrow hinsichtlich S&P 500
+</p>
+
+      
+      <div class="subscribe-container">
+        <label>
+  <input type="checkbox" id="chkDatenschutzSP">
+  Ich habe die <a href="Datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
+</label><br>
+<label>
+  <input type="checkbox" id="chkAGBSP">
+  Ich akzeptiere die <a href="AGBseite.html" target="_blank">AGB</a>
+</label><br>
+
+        <button type="button" id="btnSubscribeSP" class="subscribe-btn">Weiter zur Kasse</button>
+      </div>
+    </div>
+    <script>
+document.getElementById('btnSubscribeSP').addEventListener('click', function() {
+  const datenschutz1 = document.getElementById('chkDatenschutzSP').checked;
+  const agb1 = document.getElementById('chkAGBSP').checked;
+
+  if(datenschutz1 && agb1) {
+    window.location.href = 'https://buy.stripe.com/5kQ14f1391n42zieM05J600';
+  } else {
+    alert('Bitte akzeptieren Sie die Datenschutzerklärung und die AGBs, um fortzufahren.');
+  }
+});
+</script>
+
+
+
+
+<div class="chart-container">
+  <canvas id="nasdaqChart" width="900" height="450" style="display: block; margin: 0 auto 40px auto;"></canvas>
+</div>
+
+
+
+
+
+<h2>NASDAQ 100 Strategie vs. Sparplan*</h2>
+<table class="performance-table" aria-label="Jahresrenditen NASDAQ 100 Strategien*">
+<thead>
+<tr>
+<th>Index</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NASDAQ100 (Sparplan)</td>
+<td>30,56%</td>
+<td>15,72%</td>
+<td>-15,14%</td>
+<td>22,51%</td>
+<td>12,42%</td>
+
+</tr>
+<tr>
+<td>NASDAQ100 (Strategie)</td>
+<td>89,11%</td>
+<td>30,40%</td>
+<td>-28,61%</td>
+<td>46,59%</td>
+<td>29,24%</td>
+
+</tr>
+<tr>
+<td>Delta</td>
+<td class="positive">58,55%</td>
+<td class="positive">14,68%</td>
+<td class="negative">-13,47%</td>
+<td class="positive">24,09%</td>
+<td class="positive">16,82%</td>
+
+</tr>
+</tbody>
+</table>
+
+    <div class="fußnote">
+<p><em>* Alle dargestellten Renditen sind vor Kosten berechnet. Berechnungsgrundlage sind die Kurse und relevanten Knock-Out-Schwellen der für die jeweilige Strategie herangezogenen Indizes, jeweils über TradingView: NASDAQ 100 über FXCM CFD-Kurse, S&P 500 über BlackBull Markets CFD-Kurse. Bei den Strategien wird jeweils angenommen, dass die Positionen ab Beginn des jeweiligen Jahres eröffnet und innerhalb des Jahres je nach Signalen Long-Positionen über Knock-Out-Zertifikate eröffnet und wieder geschlossen werden; jedes Jahr wird neu gestartet. Alle Berechnungen erfolgen ohne Handelsegebühren, Spreads, Finanzierungskosten, Slippage und Steuern. Die Strategiebasis (Signal-Logik) ist proprietär und wird aus Gründen des Schutzes vor Nachahmung nicht offengelegt. Knock-Out-Produkte wurden auf Basis historischer Kursverläufe zurückgerechnet; historische Produkte, die zwischenzeitlich ausliefen, wurden nicht berücksichtigt (Survivorship Bias möglich). Historische Renditen sind kein verlässlicher Indikator für zukünftige Entwicklungen.</em></p>
+</div>
+
+    <div class="signal-card">
+      <h3>NASDAQ 100 Informationen</h3>
+      <p class="abo-details">
+Preis: 19,99 € je Monat<br>
+Hinweis: Gemäß §19 UStG wird keine Umsatzsteuer berechnet.<br>
+Zahlungsintervall: monatlich im Voraus<br>
+Mindestlaufzeit: 1 Monat<br>
+Verlängerung: automatische Verlängerung um jeweils 1 Monat<br>
+Kündigungsfrist: jederzeit mit einer Frist von 1 Monat zum Ende des Abrechnungszeitraums<br>
+Leistungsmerkmale: Information über Handelsaktivitäten von Silver Arrow hinsichtlich NASDAQ 100
+</p>
+      
+      <div class="subscribe-container">
+                <label>
+  <input type="checkbox" id="chkDatenschutzNSDQ">
+  Ich habe die <a href="Datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
+</label><br>
+<label>
+  <input type="checkbox" id="chkAGBNSDQ">
+  Ich akzeptiere die <a href="AGBseite.html" target="_blank">AGB</a>
+</label><br>
+        <button type="button" id="btnSubscribeNSDQ" class="subscribe-btn">Weiter zur Kasse</button>
+      </div>
+    </div>
+<script>
+document.getElementById('btnSubscribeNSDQ').addEventListener('click', function() {
+  const datenschutz2 = document.getElementById('chkDatenschutzNSDQ').checked;
+  const agb2 = document.getElementById('chkAGBNSDQ').checked;
+
+  if(datenschutz2 && agb2) {
+    window.location.href = 'https://buy.stripe.com/fZu9AL7rx0j01vefQ45J601';
+  } else {
+    alert('Bitte akzeptieren Sie die Datenschutzerklärung und die AGBs, um fortzufahren.');
+  }
+});
+</script>
+
+
+
+<div class="disclaimer">
+<p><strong>Disclaimer:</strong> Disclaimer: Alle Informationen auf dieser Webseite dienen ausschließlich allgemeinen Informationszwecken und stellen keine individuelle Anlageberatung oder -empfehlung dar. Investitionen in Finanzinstrumente und Kryptowährungen sind mit hohen Risiken verbunden, einschließlich des vollständigen Verlustes des eingesetzten Kapitals. Jegliche Nutzung der bereitgestellten Informationen erfolgt auf eigene Verantwortung. Die Haftung des Betreibers richtet sich nach den Regelungen in unseren AGB.</p>
+</div>
+</main>
+
+<img src="Logo Silver Arrow.png" alt="Hintergrundlogo" class="background-logo" />
+<script>
+const ctx = document.getElementById('performanceChart').getContext('2d');
+const chart = new Chart(ctx, {
+type: 'bar',
+data: {
+labels: ['2020', '2021', '2022', '2023', '2024'],
+datasets: [
+{
+label: 'S&P500 (Sparplan)',
+data: [19.7, 14.2, -6.95, 12.56, 10.0],
+backgroundColor: 'rgba(192,192,192,0.8)',
+borderColor: 'rgba(192,192,192,1)',
+borderWidth: 1
+},
+{
+label: 'S&P500 (Strategie)',
+data: [50.78, 30.09, -12.95, 25.66, 30.63],
+backgroundColor: 'rgba(30, 144, 255, 0.7)', // Blau
+borderColor: 'rgba(30, 144, 255, 1)',
+borderWidth: 1
+},
+{
+label: 'Delta',
+data: [31.07, 15.89, -6.00, 13.09, 20.63],
+backgroundColor: function(context) {
+const value = context.raw;
+return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(255, 193, 7, 0.7)'; // grün oder gelb
+},
+borderColor: function(context) {
+const value = context.raw;
+return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(255, 193, 7, 1)';
+},
+borderWidth: 1
+}
+]
+},
+options: {
+responsive: true,
+plugins: {
+legend: {
+labels: {
+color: 'silver'
+}
+},
+title: {
+display: true,
+text: 'Jahresrenditen: S&P500 (Sparplan) vs. S&P500 (Strategie)*',
+color: 'silver',
+font: {
+size: 18
+}
+}
+},
+scales: {
+x: {
+ticks: {
+color: 'silver'
+}
+},
+y: {
+ticks: {
+color: 'silver',
+callback: function(value) {
+return value + '%';
+}
+},
+title: {
+display: true,
+text: 'Rendite in %',
+color: 'silver'
+},
+grid: {
+color: '#333'
+}
+}
+}
+}
+});
+</script>
+<script>
+const ctxNasdaq = document.getElementById('nasdaqChart').getContext('2d');
+const nasdaqChart = new Chart(ctxNasdaq, {
+type: 'bar',
+data: {
+labels: ['2020', '2021', '2022', '2023', '2024'],
+datasets: [
+{
+label: 'NASDAQ100 (Sparplan)',
+data: [30.56, 15.72, -15.14, 22.51, 12.42],
+backgroundColor: 'rgba(192,192,192,0.8)', // Silber
+borderColor: 'rgba(192,192,192,1)',
+borderWidth: 1
+},
+{
+label: 'NASDAQ100 (Strategie)',
+data: [89.11, 30.40, -28.61, 46.59, 29.24],
+backgroundColor: 'rgba(30, 144, 255, 0.7)', // Blau
+borderColor: 'rgba(30, 144, 255, 1)',
+borderWidth: 1
+},
+{
+label: 'Delta',
+data: [58.55, 14.68, -13.47, 24.09, 16.82],
+backgroundColor: function(context) {
+const value = context.raw;
+return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(255, 193, 7, 0.7)'; // Grün oder Gelb
+},
+borderColor: function(context) {
+const value = context.raw;
+return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(255, 193, 7, 1)';
+},
+borderWidth: 1
+}
+]
+},
+options: {
+responsive: true,
+plugins: {
+legend: {
+labels: {
+color: 'silver'
+}
+},
+title: {
+display: true,
+text: 'Jahresrenditen: NASDAQ100 (Sparplan) vs. NASDAQ100 (Strategie)*',
+color: 'silver',
+font: {
+size: 18
+}
+}
+},
+scales: {
+x: {
+ticks: {
+color: 'silver'
+}
+},
+y: {
+ticks: {
+color: 'silver',
+callback: function(value) {
+return value + '%';
+}
+},
+title: {
+display: true,
+text: 'Rendite in %',
+color: 'silver'
+},
+grid: {
+color: '#333'
+}
+}
+}
+}
+});
+</script>
+<footer>
+  <div class="footer-links">
+    <a href="Impressum.html">Impressum</a> |
+    <a href="Datenschutz.html">Datenschutz</a> |
+    <a href="AGBseite.html">AGB</a> |
+    <a href="Kontakt.html">Kontakt</a> |
+    <a href="Kuendigung.html">Verträge hier kündigen</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 Silver Arrow – Alle Rechte vorbehalten.</p>
+</footer>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
