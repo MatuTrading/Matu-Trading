@@ -135,7 +135,56 @@ font-weight: 600;
   justify-content: center;
   align-items: stretch; /* sorgt für gleiche Höhe */
 }
-.signal-card {
+.subscribe-container {
+  text-align: left; /* linksbündig */
+}
+
+.subscribe-container label {
+  display: block;   /* jede Checkbox + Text in eigener Zeile */
+  margin-bottom: 5px; /* kleiner Abstand zwischen den Checkboxen */
+}
+.subscribe-container .subscribe-btn {
+  display: block;       /* macht den Button zu einem Blockelement */
+  margin: 10px auto 0;  /* oben 10px Abstand, automatisch zentriert horizontal, unten 0 */
+}
+
+.abo-details {
+  text-align: left;   /* Links ausrichten */
+  line-height: 1.2;   /* Zeilenabstand enger */
+  margin: 0;          /* keinen Extra-Abstand nach oben/unten */
+  font-size: 0.95rem; /* etwas kleiner, optional */
+}
+
+  
+.subscribe-btn {
+background-color: #4CAF50;
+color: white;
+border: none;
+padding: 12px 20px;
+font-size: 1rem;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+text-decoration: none;
+display: inline-block;
+}
+.subscribe-btn:hover {
+background-color: #45a049;
+}
+.fußnote {
+margin-top: 40px;
+font-size: 0.9rem;
+color: #999;
+font-style: italic;
+text-align: center;
+max-width: 900px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.4;
+}
+
+  
+  .signal-card {
   background: #111;
   padding: 25px 30px;
   border-radius: 10px;
