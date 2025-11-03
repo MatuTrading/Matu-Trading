@@ -507,7 +507,45 @@ document.getElementById('btnSubscribeSPNS').addEventListener('click', function()
   }
 });
      
-    </section>
+   <div class="signal-card">
+      <h3>Krypto Basis: BTC + ETH Inforamtionen</h3>
+<p class="abo-details">
+Preis: 29,99 € je Monat<br>
+Hinweis: Gemäß §19 UStG wird keine Umsatzsteuer berechnet.<br>
+Zahlungsintervall: monatlich im Voraus<br>
+Mindestlaufzeit: 1 Monat<br>
+Verlängerung: automatische Verlängerung um jeweils 1 Monat<br>
+Kündigungsfrist: jederzeit mit einer Frist von 1 Monat zum Ende des Abrechnungszeitraums<br>
+Leistungsmerkmale: Information über Handelsaktivitäten von Matu Trading hinsichtlich BTC und ETH
+</p>
+      
+      <div class="subscribe-container">
+                      <label>
+  <input type="checkbox" id="chkDatenschutzBE">
+  Ich habe die <a href="Datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
+</label><br>
+<label>
+  <input type="checkbox" id="chkAGBBE">
+  Ich akzeptiere die <a href="AGBseite.html" target="_blank">AGB</a>
+</label><br>
+        <button type="button" id="btnSubscribeBE" class="subscribe-btn">Weiter zur Kasse</button>
+      </div>
+    </div>
+<script>
+document.getElementById('btnSubscribeBE').addEventListener('click', function() {
+  const datenschutz9 = document.getElementById('chkDatenschutzBE').checked;
+  const agb9 = document.getElementById('chkAGBBE').checked;
+
+  if(datenschutz9 && agb9) {
+    window.location.href = 'https://buy.stripe.com/8x228jbHN2r8fm4gU85J608';
+  } else {
+    alert('Bitte akzeptieren Sie die Datenschutzerklärung und die AGBs, um fortzufahren.');
+  }
+});
+</script>
+  
+  </section>
+      
 
 <section class="strategy-overview">
 <p>
