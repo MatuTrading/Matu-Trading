@@ -469,6 +469,43 @@ Matu Trading
         <p>Erhalten Sie Informationen zu ausgewählten Kryptowährungen</p>
         <a href="Krypto.html" class="btn-link" aria-label="Zu Kryptostrategien">Zu den Kryptostrategien</a>
       </article>
+        <div class="signal-card">
+      <h3>Indices: S&amp;P 500 + NASDAQ 100 Informationen</h3>
+<p class="abo-details">
+Preis: 29,99 € je Monat<br>
+Hinweis: Gemäß §19 UStG wird keine Umsatzsteuer berechnet.<br>
+Zahlungsintervall: monatlich im Voraus<br>
+Mindestlaufzeit: 1 Monat<br>
+Verlängerung: automatische Verlängerung um jeweils 1 Monat<br>
+Kündigungsfrist: jederzeit mit einer Frist von 1 Monat zum Ende des Abrechnungszeitraums<br>
+Leistungsmerkmale: Information über Handelsaktivitäten von Matu Trading hinsichtlich S&P 500 und NASDAQ 100
+</p>
+      
+      <div class="subscribe-container">
+                      <label>
+  <input type="checkbox" id="chkDatenschutzSPNS">
+  Ich habe die <a href="Datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
+</label><br>
+<label>
+  <input type="checkbox" id="chkAGBSPNS">
+  Ich akzeptiere die <a href="AGBseite.html" target="_blank">AGB</a>
+</label><br>
+        <button type="button" id="btnSubscribeSPNS" class="subscribe-btn">Weiter zur Kasse</button>
+      </div>
+    </div>
+
+  </div>
+  <script>
+document.getElementById('btnSubscribeSPNS').addEventListener('click', function() {
+  const datenschutz3 = document.getElementById('chkDatenschutzSPNS').checked;
+  const agb3 = document.getElementById('chkAGBSPNS').checked;
+
+  if(datenschutz3 && agb3) {
+    window.location.href = 'https://buy.stripe.com/28EfZ98vB7Ls4Hq1Ze5J607';
+  } else {
+    alert('Bitte akzeptieren Sie die Datenschutzerklärung und die AGBs, um fortzufahren.');
+  }
+});
      
     </section>
 
