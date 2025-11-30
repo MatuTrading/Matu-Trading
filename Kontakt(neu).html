@@ -301,8 +301,15 @@ footer .footer-copy {
 
   <main>
     <h2>Kontaktieren Sie uns</h2>
-    <form action="13e43b34-3ca0-409d-a3ff-7b52dae28dbc" method="POST">
-  <input type="hidden" name="_subject" value="Neue Nachricht über das Kontaktformular auf Matu Trading" />
+   <form action="https://api.web3forms.com/submit" method="POST">
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value="13e43b34-3ca0-409d-a3ff-7b52dae28dbc">
+  
+  <!-- Betreff der E-Mail -->
+  <input type="hidden" name="subject" value="Neue Nachricht über das Kontaktformular auf Matu Trading">
+  
+  <!-- Weiterleitungsseite nach Absenden -->
+  <input type="hidden" name="redirect" value="https://matutrading.de/danke.html">
 
   <label for="name">Name</label>
   <input type="text" id="name" name="name" placeholder="Ihr Name" required />
@@ -315,6 +322,7 @@ footer .footer-copy {
 
   <button type="submit">Absenden</button>
 </form>
+
 
 
     <div class="disclaimer">
