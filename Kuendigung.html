@@ -238,39 +238,41 @@ footer .footer-copy {
 
   <main>
     <h2>Kündigung Ihres Abonnements</h2>
-    <form action="https://formspree.io/f/xnnejpno" method="POST" aria-label="Kündigungsformular">
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="Neue Kündigung über Matu Trading" />
-      <input type="hidden" name="_template" value="box" />
+   <form action="https://api.web3forms.com/submit" method="POST" aria-label="Kündigungsformular">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="333de3b2-efcd-4bb9-8596-de7eaa79f0da">
+    <!-- Betreff der Mail -->
+    <input type="hidden" name="subject" value="Neue Kündigung über Matu Trading">
+    <!-- Optional: Weiterleitung nach Absenden -->
+    <input type="hidden" name="redirect" value="https://matutrading.de/danke.html">
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Ihr Name" required />
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Ihr Name" required />
 
-      <label for="contract">Vertragsnummer</label>
-      <input type="text" id="contract" name="contract" placeholder="Ihre Vertragsnummer" required />
+    <label for="contract">Vertragsnummer</label>
+    <input type="text" id="contract" name="contract" placeholder="Ihre Vertragsnummer" required />
 
-      <label for="email">E-Mail</label>
-      <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required />
+    <label for="email">E-Mail</label>
+    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required />
 
+    <fieldset>
+      <legend>Abonnements, die gekündigt werden sollen:</legend>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="Nasdaq" /> Nasdaq</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="S&P500" /> S&P500</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="BTC" /> BTC</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="ETH" /> ETH</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="XRP" /> XRP</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="SOL" /> SOL</label>
+      <label class="checkbox-label"><input type="checkbox" name="abos[]" value="DOGE" /> DOGE</label>
+    </fieldset>
 
-      <fieldset>
-        <legend>Abonnements, die gekündigt werden sollen:</legend>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="Nasdaq" /> Nasdaq</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="S&P500" /> S&P500</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="BTC" /> BTC</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="ETH" /> ETH</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="XRP" /> XRP</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="SOL" /> SOL</label>
-        <label class="checkbox-label"><input type="checkbox" name="abos[]" value="DOGE" /> DOGE</label>
-      </fieldset>
+    <label class="checkbox-label">
+      <input type="checkbox" required />
+      Ich habe die <a href="Datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen.
+    </label>
 
-      <label class="checkbox-label">
-        <input type="checkbox" required />
-        Ich habe die <a href="Datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen.
-      </label>
-
-      <button type="submit">jetzt kündigen</button>
-    </form>
+    <button type="submit">jetzt kündigen</button>
+  </form>
 
     <div class="disclaimer">
       <p><strong>Hinweis:</strong> Weitere Informationen über die Dokumentation finden Sie in der Datenschutzerklärung.</p>
