@@ -959,19 +959,18 @@ new Chart(ctxCum, {
 scales: {
   x: { ticks: { color: 'silver' } },
   y: {
-    min: -100,
-    max: 500,
     ticks: {
       color: 'silver',
       callback: function(value) { return value.toFixed(0) + '%'; }
     },
     title: {
       display: true,
-      text: 'Kumulierte Rendite in %',
+      text: 'Rendite in %',
       color: 'silver'
     },
     grid: { color: '#333' }
-  }
+}
+
 }
 
   }
