@@ -965,25 +965,24 @@ new Chart(ctxCum, {
         font: { size: 18 }
       }
     },
-    scales: {
-      x: {
-        ticks: { color: 'silver' }
-      },
-      y: {
-        ticks: {
-          color: 'silver',
-          callback: function(value) {
-            return value.toFixed(0) + '%';
-          }
-        },
-        title: {
-          display: true,
-          text: 'Kumulierte Rendite in %',
-          color: 'silver'
-        },
-        grid: { color: '#333' }
-      }
-    }
+scales: {
+  x: { ticks: { color: 'silver' } },
+  y: {
+    min: -100,
+    max: 500,
+    ticks: {
+      color: 'silver',
+      callback: function(value) { return value.toFixed(0) + '%'; }
+    },
+    title: {
+      display: true,
+      text: 'Kumulierte Rendite in %',
+      color: 'silver'
+    },
+    grid: { color: '#333' }
+  }
+}
+
   }
 });
 </script>
