@@ -987,6 +987,60 @@ new Chart(ctxCum, {
   }
 });
 </script>
+new Chart(ctxCum, {
+  type: 'line',
+  data: {
+    labels: ['2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets: [
+      {
+        label: 'ETH Strategie (kumuliert)',
+        data: btcStrategieCum,
+        borderWidth: 2,
+        tension: 0.25
+      },
+      {
+        label: 'ETH Sparplan (kumuliert)',
+        data: btcSparplanCum,
+        borderWidth: 2,
+        tension: 0.25
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: { color: 'silver' }
+      },
+      title: {
+        display: true,
+        text: 'ETH – Kumulierte Rendite Strategie vs. Sparplan',
+        color: 'silver',
+        font: { size: 18 }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: 'silver' }
+      },
+      y: {
+        ticks: {
+          color: 'silver',
+          callback: function(value) {
+            return value.toFixed(0) + '%';
+          }
+        },
+        title: {
+          display: true,
+          text: 'Kumulierte Rendite in %',
+          color: 'silver'
+        },
+        grid: { color: '#333' }
+      }
+    }
+  }
+});
+</script>
 <script>
 const ethSparplan = [-61.29, -21.77, 214.96, 83.10, -35.19, 33.20, 13.76];
 const ethStrategie = [-26.63, 44.55, 577.49, 119.20, -20.15, 16.13, 53.01];
