@@ -431,7 +431,11 @@ Wie diese Informationen genutzt werden, liegt vollständig im Ermessen des Abonn
 
 
 </section>
-  
+ <div class="chart-container">
+  <canvas id="btcCumulativeChart" width="900" height="450" 
+  style="display: block; margin: 0 auto 40px auto;"></canvas>
+</div>
+ 
 
 
 <h2>BTC Strategie vs. Sparplan*</h2>
@@ -1175,6 +1179,84 @@ const DOGEChart = new Chart(ctxDOGE, {
         title: {
           display: true,
           text: 'Rendite in %',
+          color: 'silver'
+        },
+        grid: { color: '#333' }
+      }
+    }
+  }
+});
+</script>
+<script>
+const btcSparplan = [-49.41, 21.62, 199.75, 7.22, -37.72, 58.94, 53.76, 0]; 
+const btcStrategie = [-2.65, 80.59, 279.70, 1.94, -42.93, 57.00, 66.55, 0]; 
+
+// Falls 2025 noch nicht abgeschlossen ist,
+// ersetze die letzten 0 durch deine 2025 Rendite.
+
+function calculateCumulative(data) {
+  let result = [];
+  let value = 1;
+
+  data.forEach(r => {
+    value *= (1 + r / 100);
+    result.push((value - 1) * 100);
+  });
+
+  return result;
+}
+
+const btcSparplanCum = calculateCumulative(btcSparplan);
+const btcStrategieCum = calculateCumulative(btcStrategie);
+
+const ctxCum = document.getElementById('btcCumulativeChart').getContext('2d');
+
+new Chart(ctxCum, {
+  type: 'line',
+  data: {
+    labels: ['2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets: [
+      {
+        label: 'BTC Strategie (kumuliert)',
+        data: btcStrategieCum,
+        borderWidth: 2,
+        tension: 0.25
+      },
+      {
+        label: 'BTC Sparplan (kumuliert)',
+        data: btcSparplanCum,
+        borderWidth: 2,
+        tension: 0.25
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: { color: 'silver' }
+      },
+      title: {
+        display: true,
+        text: 'BTC – Kumulierte Rendite Strategie vs. Sparplan',
+        color: 'silver',
+        font: { size: 18 }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: 'silver' }
+      },
+      y: {
+        ticks: {
+          color: 'silver',
+          callback: function(value) {
+            return value.toFixed(0) + '%';
+          }
+        },
+        title: {
+          display: true,
+          text: 'Kumulierte Rendite in %',
           color: 'silver'
         },
         grid: { color: '#333' }
