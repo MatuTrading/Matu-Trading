@@ -1000,19 +1000,7 @@ backgroundColor: 'rgba(30, 144, 255, 0.7)', // Blau
 borderColor: 'rgba(30, 144, 255, 1)',
 borderWidth: 1
 },
-{
-label: 'Delta',
-data: [34.66, 66.32, 362.53, 36.10, 15.04, -17.07, 39.25],
-backgroundColor: function(context) {
-const value = context.raw;
-return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(255, 193, 7, 0.7)'; // Grün oder Gelb
-},
-borderColor: function(context) {
-const value = context.raw;
-return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(255, 193, 7, 1)';
-},
-borderWidth: 1
-}
+
 ]
 },
 options: {
