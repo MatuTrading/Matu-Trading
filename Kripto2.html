@@ -742,6 +742,7 @@ document.getElementById('btnSubscribeXRP').addEventListener('click', function() 
   <th>2022</th>
   <th>2023</th>
   <th>2024</th>
+  <th>2025</th>
 </tr>
 </thead>
 <tbody>
@@ -750,7 +751,8 @@ document.getElementById('btnSubscribeXRP').addEventListener('click', function() 
   <td>1543,05%</td>
   <td>-76,38%</td>
   <td>376,58%</td>
-  <td>44,64%</td>
+  <td>31,84%</td>
+  <td>-24,78%</td>
 </tr>
 <tr>
   <td>SOL (Strategie)</td>
@@ -758,6 +760,7 @@ document.getElementById('btnSubscribeXRP').addEventListener('click', function() 
   <td>-64,36%</td>
   <td>414,53%</td>
   <td>76,48%</td>
+  <td>-26,52%</td>
 </tr>
 <tr>
   <td>Delta</td>
@@ -765,6 +768,7 @@ document.getElementById('btnSubscribeXRP').addEventListener('click', function() 
   <td class="positive">12,02%</td>
   <td class="positive">37,95%</td>
   <td class="positive">31,84%</td>
+  <td class="negative">-1,74%</td>
 </tr>
 </tbody>
 </table>
@@ -1108,18 +1112,18 @@ const ctxSOL = document.getElementById('SOLChart').getContext('2d');
 const SOLChart = new Chart(ctxSOL, {
   type: 'line',
   data: {
-    labels: ['2021','2022','2023','2024'],
+    labels: ['2021','2022','2023','2024', '2025'],
     datasets: [
       {
         label: 'SOL (Sparplan)',
-        data: [1543.05, -76.38, 376.58, 31.84],
+        data: [1543.05, 105.87, 712.95, 736.82, 418.63],
         backgroundColor: 'rgba(192,192,192,0.8)',
         borderColor: 'rgba(192,192,192,1)',
         borderWidth: 1
       },
       {
         label: 'SOL (Strategie)',
-        data: [4244.25, -64.36, 414.53, 76.48],
+        data: [4244.25, 691.91, 2787.91, 3766.64, 2187.64],
         backgroundColor: 'rgba(30, 144, 255, 0.7)',
         borderColor: 'rgba(30, 144, 255, 1)',
         borderWidth: 1
@@ -1135,7 +1139,7 @@ const SOLChart = new Chart(ctxSOL, {
       },
       title: {
         display: true,
-        text: 'Jahresrenditen: SOL (Sparplan) vs. SOL (Strategie)*',
+        text: 'Komulierte Jahresrenditen: SOL (Sparplan) vs. SOL (Strategie)*',
         color: 'silver',
         font: { size: 18 }
       }
