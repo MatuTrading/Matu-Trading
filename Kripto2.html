@@ -565,6 +565,7 @@ document.getElementById('btnSubscribeBTC').addEventListener('click', function() 
 <td>-35,19%</td>
 <td>33,20%</td>
 <td>13,76%</td>
+<td>6,17</td>
 </tr>
 <tr>
 <td>ETH (Strategie)</td>
@@ -575,6 +576,7 @@ document.getElementById('btnSubscribeBTC').addEventListener('click', function() 
 <td>-20,15%</td>
 <td>16,13%</td>
 <td>53,01%</td>
+<td>3,24</td>
 </tr>
 <tr>
 <td>Delta</td>
@@ -585,6 +587,7 @@ document.getElementById('btnSubscribeBTC').addEventListener('click', function() 
 <td class="positive">15,04%</td>
 <td class="negative">-17,07%</td>
 <td class="positive">39,25%</td>
+<td class="negative">-2,92%</td>
 </tr>
 </tbody>
 </table>
@@ -977,18 +980,18 @@ const ctxETH = document.getElementById('ETHChart').getContext('2d');
 const ETHChart = new Chart(ctxETH, {
 type: 'line',
 data: {
-labels: ['2018','2019','2020', '2021', '2022', '2023', '2024'],
+labels: ['2018','2019','2020', '2021', '2022', '2023', '2024', '2025'],
 datasets: [
 {
 label: 'ETH (Sparplan)',
-data: [-61.29, -21.77, 214.96, 83.10, -35.19, 33.20, 13.76],
+data: [-61.29, -45.75, 118.91, 246.38, 92.56, 135.94, 146.32, 142.09],
 backgroundColor: 'rgba(192,192,192,0.8)', // Silber
 borderColor: 'rgba(192,192,192,1)',
 borderWidth: 1
 },
 {
 label: 'ETH (Strategie)',
-data: [-26.63, 44.55, 577.49, 119.20, -20.15, 16.13, 53.01],
+data: [-26.63, 25.31, 691.80, 1256.53, 782.58, 773.44, 1067.42, 967.55],
 backgroundColor: 'rgba(30, 144, 255, 0.7)', // Blau
 borderColor: 'rgba(30, 144, 255, 1)',
 borderWidth: 1
@@ -1006,7 +1009,7 @@ color: 'silver'
 },
 title: {
 display: true,
-text: 'Jahresrenditen: ETH (Sparplan) vs. ETH (Strategie)*',
+text: 'Kumulierte Jahresrenditen: ETH (Sparplan) vs. ETH (Strategie)*',
 color: 'silver',
 font: {
 size: 18
@@ -1045,7 +1048,7 @@ const ctxXRP = document.getElementById('XRPChart').getContext('2d');
 const XRPChart = new Chart(ctxXRP, {
   type: 'line',
   data: {
-    labels: ['2018','2019','2020','2021','2022','2023','2024'],
+    labels: ['2018','2019','2020','2021','2022','2023','2024', '2025'],
     datasets: [
       {
         label: 'XRP (Sparplan)',
