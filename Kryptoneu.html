@@ -915,18 +915,9 @@ const btcStrategie = [-2.65, 78.20, 477.68, 367.15, 124.68, 220.11, 380.79, 284.
 
 // Falls 2025 noch nicht abgeschlossen ist,
 // ersetze die letzten 0 durch deine 2025 Rendite.
+const btcSparplanCum = btcSparplan;      // Einfach die Originalwerte
+const btcStrategieCum = btcStrategie;    // Einfach die Originalwerte
 
-function calculateCumulative(data) {
-  let result = [];
-  let value = 1;
-
-  data.forEach(r => {
-    value *= (1 + r / 100);
-    result.push((value - 1) * 100);
-  });
-
-  return result;
-}
 
 const btcSparplanCum = calculateCumulative(btcSparplan);
 const btcStrategieCum = calculateCumulative(btcStrategie);
