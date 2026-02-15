@@ -1285,7 +1285,7 @@ function calculateCumulative(data) {
 const ethSparplanCum = calculateCumulative(ethSparplan);
 const ethStrategieCum = calculateCumulative(ethStrategie);
 
-const ctxEthCum = document.getElementById('ETHChart').getContext('2d');
+const ctxEthCum = document.getElementById('ethCumulativeChart').getContext('2d');
 
 new Chart(ctxEthCum, {
   type: 'line',
@@ -1338,6 +1338,7 @@ new Chart(ctxEthCum, {
     }
   }
 });
+
 </script>
   
 
