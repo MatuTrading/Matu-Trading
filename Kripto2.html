@@ -649,6 +649,7 @@ document.getElementById('btnSubscribeETH').addEventListener('click', function() 
 <th>2022</th>
 <th>2023</th>
 <th>2024</th>
+<th>2025</th>
 </tr>
 </thead>
 <tbody>
@@ -661,6 +662,7 @@ document.getElementById('btnSubscribeETH').addEventListener('click', function() 
 <td>-29,90%</td>
 <td>27,06%</td>
 <td>253,90%</td>
+<td>6,17%</td>
 </tr>
 <tr>
 <td>XRP (Strategie)</td>
@@ -671,6 +673,7 @@ document.getElementById('btnSubscribeETH').addEventListener('click', function() 
 <td>-11,95%</td>
 <td>11,27%</td>
 <td>204,51%</td>
+<td>-50,06%</td>
 </tr>
 <tr>
 <td>Delta</td>
@@ -681,6 +684,7 @@ document.getElementById('btnSubscribeETH').addEventListener('click', function() 
 <td class="positive">17,95%</td>
 <td class="negative">-15,79%</td>
 <td class="negative">-49,39%</td>
+<td class="negative">-56,23%</td>
 </tr>
 </tbody>
 </table>
@@ -1052,14 +1056,14 @@ const XRPChart = new Chart(ctxXRP, {
     datasets: [
       {
         label: 'XRP (Sparplan)',
-        data: [-37.51, -36.84, -4.64, 30.29, -29.90, 27.06, 253.90],
+        data: [-37.51, -48.68, -35.59, -4.48, -32.41, -8.66, 227.64, 217.63],
         backgroundColor: 'rgba(192,192,192,0.8)',
         borderColor: 'rgba(192,192,192,1)',
         borderWidth: 1
       },
       {
         label: 'XRP (Strategie)',
-        data: [45.02, -25.80, 232.79, 115.97, -11.95, 11.27, 204.51],
+        data: [45.02, -9.10, 212.60, 460.33, 312.31, 300.87, 989.79, 382.47],
         backgroundColor: 'rgba(30, 144, 255, 0.7)',
         borderColor: 'rgba(30, 144, 255, 1)',
         borderWidth: 1
@@ -1075,7 +1079,7 @@ const XRPChart = new Chart(ctxXRP, {
       },
       title: {
         display: true,
-        text: 'Jahresrenditen: XRP (Sparplan) vs. XRP (Strategie)*',
+        text: 'Kumulierte Jahresrenditen: XRP (Sparplan) vs. XRP (Strategie)*',
         color: 'silver',
         font: { size: 18 }
       }
