@@ -827,6 +827,7 @@ document.getElementById('btnSubscribeSOL').addEventListener('click', function() 
   <th>2022</th>
   <th>2023</th>
   <th>2024</th>
+  <th>2025</th>
 </tr>
 </thead>
 <tbody>
@@ -836,6 +837,7 @@ document.getElementById('btnSubscribeSOL').addEventListener('click', function() 
   <td>-26,00%</td>
   <td>20,94%</td>
   <td>147,81%</td>
+  <td>-41,10%</td>
 </tr>
 <tr>
   <td>DOGE (Strategie)</td>
@@ -843,6 +845,7 @@ document.getElementById('btnSubscribeSOL').addEventListener('click', function() 
   <td>-34,49%</td>
   <td>18,44%</td>
   <td>350,59%</td>
+  <td>-32,79%</td>
 </tr>
 <tr>
   <td>Delta</td>
@@ -850,6 +853,7 @@ document.getElementById('btnSubscribeSOL').addEventListener('click', function() 
   <td class="negative">-8,49%</td>
   <td class="negative">-2,50%</td>
   <td class="positive">202,78%</td>
+  <td class="positive">8,31%</td>
 </tr>
 </tbody>
 </table>
@@ -1168,18 +1172,18 @@ const ctxDOGE = document.getElementById('DOGEChart').getContext('2d');
 const DOGEChart = new Chart(ctxDOGE, {
   type: 'line',
   data: {
-    labels: ['2021','2022','2023','2024'],
+    labels: ['2021','2022','2023','2024', '2025'],
     datasets: [
       {
         label: 'DOGE (Sparplan)',
-        data: [348.07, -26.00, 20.94, 147.81],
+        data: [348.07, 102.79, 103.82, 340.78, 119.49],
         backgroundColor: 'rgba(192,192,192,0.8)',
         borderColor: 'rgba(192,192,192,1)',
         borderWidth: 1
       },
       {
         label: 'DOGE (Strategie)',
-        data: [472.04, -34.49, 18.44, 350.59],
+        data: [472.04, 120.11, 113.29, 733.43, 361.57],
         backgroundColor: 'rgba(30, 144, 255, 0.7)',
         borderColor: 'rgba(30, 144, 255, 1)',
         borderWidth: 1
@@ -1195,7 +1199,7 @@ const DOGEChart = new Chart(ctxDOGE, {
       },
       title: {
         display: true,
-        text: 'Jahresrenditen: DOGE (Sparplan) vs. DOGE (Strategie)*',
+        text: 'Kumulierte Jahresrenditen: DOGE (Sparplan) vs. DOGE (Strategie)*',
         color: 'silver',
         font: { size: 18 }
       }
